@@ -1,2 +1,50 @@
-node_modules
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by testing tools
+coverage/
+
+# Dependency directories
+jspm_packages/
+
+# dotenv environment variables
 .env
+.env.test
+.env.development
+.env.production
+.env.local
+
+# Build output
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm/
+
+# VS Code settings
+.vscode/
+
+# Debug files
+debug.log
+
+# IDEs
+.idea/
+*.sublime-workspace
+*.sublime-project
