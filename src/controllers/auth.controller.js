@@ -53,7 +53,7 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
     try {
-        const { name, email, password, phone, address } = req.body;
+        const { name, email, password, phone, address, role } = req.body;
         if (!name || !email || !password || !phone || !address) {
             return res.status(400).json({
                 success: false,
@@ -68,7 +68,7 @@ export const register = async (req, res) => {
             });
         }
         const hashedPassword = await bcryptjs.hash(password, 12);
-        const user = await User.create({ name, email, password: hashedPassword, phone, address });
+        const user = await User.create({ name, email, password: hashedPassword, phone, address, role });
         res.status(201).json({
             success: true,
             message: 'User registered successfully',
