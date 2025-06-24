@@ -6,6 +6,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import authRoute from "./routes/auth.route.js";
+import categoryRouter from "./routes/category.route.js";
 import productRoute from "./routes/product.route.js";
 
 const app = express()
@@ -21,6 +22,8 @@ app.use(cors({
 
 app.use("/api/v1/auth",authRoute)
 app.use("/api/v1/product",productRoute)
+app.use("/api/v1/category", categoryRouter)
+
 
 app.listen(ENV.PORT,  () => {
     connectDB();
