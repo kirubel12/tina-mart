@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
+import authRoute from "./routes/auth.route.js";
 
 const app = express()
 app.use(express.json())
@@ -16,6 +17,8 @@ app.use(cors({
     origin: ENV.CLIENT_URL,
     credentials: true,
 }))
+
+app.use("/api/v1/auth",authRoute)
 
 app.listen(ENV.PORT, () => {
     connectDB();
