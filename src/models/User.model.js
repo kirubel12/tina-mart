@@ -35,35 +35,21 @@ const userSchema = new Schema({
     address: {
       type: String,
       default: '',
-    },
-    refreshToken: {
-      type: String,
-      select: false,
-    },
-    refreshTokenExpiry: {
-      type: Date,
-      select: false,
     }
+
   },
   {
     timestamps: true,
   });
 
-// Add method to generate tokens
+// Update generateAuthToken to only return access token
 userSchema.methods.generateAuthToken = function() {
   const token = jwt.sign(
     { id: this._id, role: this.role },
     ENV.JWT_SECRET,
     { expiresIn: '15m' }
   );
-
-  const refreshToken = jwt.sign(
-    { id: this._id },
-    ENV.REFRESH_TOKEN_SECRET,
-    { expiresIn: '7d' }
-  );
-
-  return { token, refreshToken };
+  return { token };
 };
 
 export const User = model('User', userSchema);

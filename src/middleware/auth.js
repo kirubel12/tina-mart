@@ -33,31 +33,6 @@ export const authMiddleware = async (req, res, next) => {
     }
 };
 
-export const verifyRefreshToken = async (req, res, next) => {
-    try {
-        const { refreshToken } = req.body;
-
-        if (!refreshToken) {
-            return res.status(401).json({ success: false, message: "No refresh token provided" });
-        }
-
-        const decoded = jwt.verify(refreshToken, ENV.REFRESH_TOKEN_SECRET);
-        const user = await User.findOne({ _id: decoded.id });
-
-        if (!user || user.refreshToken !== refreshToken) {
-            return res.status(401).json({ success: false, message: "Invalid refresh token" });
-        }
-
-        if (new Date() > new Date(user.refreshTokenExpiry)) {
-            return res.status(401).json({ success: false, message: "Refresh token expired" });
-        }
-
-        req.user = user;
-        next();
-    } catch (error) {
-        return res.status(401).json({ success: false, message: "Invalid refresh token" });
-    }
-};
 
 export const checkRole = (roles = []) => {
     return (req, res, next) => {
