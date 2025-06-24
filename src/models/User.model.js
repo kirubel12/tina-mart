@@ -1,4 +1,6 @@
 import {Schema, model} from "mongoose";
+import jwt from 'jsonwebtoken';
+import {ENV} from '../config/env.js'; // assuming ENV is defined in a separate file
 
 const userSchema = new Schema({
     name: {
@@ -10,16 +12,16 @@ const userSchema = new Schema({
     },
     email: {
       type: String,
-      required: [true, 'Email is required'],
+      required: true,
       unique: true,
       lowercase: true,
       match: [/.+\@.+\..+/, 'Please fill a valid email address'],
     },
     password: {
       type: String,
-      required: [true, 'Password is required'],
+      required: true,
       minlength: 6,
-      select: false, // Exclude password from queries by default
+      select: false,
     },
     role: {
       type: String,
@@ -34,13 +36,34 @@ const userSchema = new Schema({
       type: String,
       default: '',
     },
-    isVerified: {
-      type: Boolean,
-      default: false,
+    refreshToken: {
+      type: String,
+      select: false,
     },
+    refreshTokenExpiry: {
+      type: Date,
+      select: false,
+    }
   },
   {
-    timestamps: true, // Automatically add createdAt and updatedAt
-  })
+    timestamps: true,
+  });
+
+// Add method to generate tokens
+userSchema.methods.generateAuthToken = function() {
+  const token = jwt.sign(
+    { id: this._id, role: this.role },
+    ENV.JWT_SECRET,
+    { expiresIn: '15m' }
+  );
+
+  const refreshToken = jwt.sign(
+    { id: this._id },
+    ENV.REFRESH_TOKEN_SECRET,
+    { expiresIn: '7d' }
+  );
+
+  return { token, refreshToken };
+};
 
 export const User = model('User', userSchema);
