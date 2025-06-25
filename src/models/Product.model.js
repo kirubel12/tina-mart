@@ -7,7 +7,7 @@ const productSchema = new Schema(  {
     stock: { type: Number, default: 0 },
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 
-    category: { type: String },
+    category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
     image: String,
     rating: { type: Number, default: 0 },
     reviewsCount: { type: Number, default: 0 },

@@ -1,4 +1,5 @@
 import {Product} from "../models/Product.model.js";
+import { Category } from './../models/Category.model.js';
 
 
 export const getProducts = async (req,res) => {
@@ -33,9 +34,20 @@ export const getProducts = async (req,res) => {
 
 export const createProduct = async (req,res) => {
     try {
+        const category = await Category.findById(req.body.category);
+        if (!category){
+            res.status(400).json({
+                success: false,
+                message: 'Category not found'
+            });
+            return;
+        }
+
+
         const product = await Product.create({
             ...req.body,
-            user: req.user._id
+            user: req.user._id,
+            category: category._id
         })
 
         res.status(201).json({
