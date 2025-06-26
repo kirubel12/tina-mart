@@ -8,6 +8,7 @@ import helmet from "helmet";
 import authRoute from "./routes/auth.route.js";
 import categoryRouter from "./routes/category.route.js";
 import productRoute from "./routes/product.route.js";
+import cartRouter from "./routes/cart.route.js";
 
 const app = express()
 app.use(express.json())
@@ -23,6 +24,7 @@ app.use(cors({
 app.use("/api/v1/auth",authRoute)
 app.use("/api/v1/product",productRoute)
 app.use("/api/v1/category", categoryRouter)
+app.use("/api/v1/cart", cartRouter)
 
 
 app.listen(ENV.PORT,  () => {
