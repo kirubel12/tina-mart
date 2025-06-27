@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8eba22b-3599-4cdb-8df8-98571df103ca" name="Changes" comment="feat/project-installation created sucessfully">
-      <change afterPath="$PROJECT_DIR$/src/controllers/product.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middleware/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middleware/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Product.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Product.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/User.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/User.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/auth.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/auth.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Order.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Order.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +22,9 @@
         <option value="JSX File" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -96,9 +94,11 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feat/product",
+    "code.cleanup.on.save": "true",
+    "git-widget-placeholder": "feat/order",
+    "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "22.16.0",
-    "javascript.nodejs.core.library.typings.version": "22.15.32",
+    "javascript.nodejs.core.library.typings.version": "22.15.33",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -106,8 +106,8 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/home/xotwod/WebstormProjects/tina-mart/node_modules/typescript/lib",
+    "settings.editor.selected.configurable": "httpClient",
+    "ts.external.directory.path": "C:\\Users\\kirub\\code\\tina-mart\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -129,6 +129,12 @@
       <workItem from="1750676671645" duration="1174000" />
       <workItem from="1750754343164" duration="294000" />
       <workItem from="1750754656738" duration="1241000" />
+      <workItem from="1751007170422" duration="301000" />
+      <workItem from="1751007508435" duration="83000" />
+      <workItem from="1751007615013" duration="1125000" />
+      <workItem from="1751010047684" duration="64000" />
+      <workItem from="1751010153096" duration="371000" />
+      <workItem from="1751010549800" duration="1326000" />
     </task>
     <task id="LOCAL-00001" summary="feat/project-installation created sucessfully">
       <option name="closed" value="true" />
