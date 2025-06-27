@@ -10,8 +10,8 @@ const orderRouter = Router();
 orderRouter.post("/create", authMiddleware, createOrder);
 orderRouter.get("/", authMiddleware, getOrders);
 orderRouter.get("/:orderId", authMiddleware, getOrderById);
-orderRouter.delete("/cancel/:orderId", authMiddleware, cancelOrder)
-orderRouter.put("/update/:orderId", authMiddleware, updateOrder)
+orderRouter.delete("/cancel/:orderId", authMiddleware("admin"), cancelOrder)
+orderRouter.put("/update/:orderId", authMiddleware("admin"), updateOrder)
 
 
 export default orderRouter;
