@@ -2,6 +2,8 @@ import type { Context, Hono } from "hono";
 import bcryptjs from "bcryptjs";
 import User from "../models/user.model.js";
 import {validateEmail, validatePassword} from "../config/validate.js";
+import {sign, verify} from "hono/jwt"
+import {ENV} from "../config/env.js";
 
 export const registerUser = async(c:Context) => {
     const {
@@ -69,3 +71,48 @@ export const registerUser = async(c:Context) => {
         }}, 201);
 
 }
+
+export const loginUser = async (c: Context) => {
+    try {
+        const { email, password } = await c.req.json();
+
+        const errors: string[] = [];
+        if (!email) errors.push("Email is required");
+        if (!password) errors.push("Password is required");
+        if (errors.length > 0) return c.json({ errors }, 400);
+
+        if (!validateEmail(email))
+            return c.json({ error: "Please provide a valid email address" }, 400);
+
+        const user = await User.findOne({ email }).select("+password");
+        if (!user) return c.json({ message: "No user associated with this email" }, 401);
+
+        const isPasswordValid = bcryptjs.compareSync(password, user.password);
+        if (!isPasswordValid)
+            return c.json({ message: "Invalid email or password" }, 401);
+
+        const token = await sign(
+            {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+            },
+            ENV.JWT_SECRET
+        );
+
+        return c.json({
+            message: "Login successful",
+            token,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+            },
+        });
+    } catch (e) {
+        console.error("Error:", (e as Error).message);
+        return c.json({ error: "Internal server error" }, 500);
+    }
+};

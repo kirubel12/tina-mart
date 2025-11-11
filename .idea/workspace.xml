@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="" />
+    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="feat:user register">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/auth.routes.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +20,9 @@
         <option value="TypeScript File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/server/package.json" />
@@ -36,7 +43,9 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "master",
     "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/xotwod/code/tina-mart",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -64,11 +73,24 @@
       <workItem from="1762838823092" duration="1982000" />
       <workItem from="1762841582306" duration="2848000" />
       <workItem from="1762845250662" duration="1745000" />
-      <workItem from="1762847546051" duration="3250000" />
+      <workItem from="1762847546051" duration="4519000" />
     </task>
+    <task id="LOCAL-00001" summary="feat:user register">
+      <option name="closed" value="true" />
+      <created>1762851060729</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1762851060729</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat:user register" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:user register" />
   </component>
 </project>
