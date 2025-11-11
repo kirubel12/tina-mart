@@ -116,3 +116,19 @@ export const loginUser = async (c: Context) => {
         return c.json({ error: "Internal server error" }, 500);
     }
 };
+
+export const validateUserToken = async (c: Context) => {
+    const authHeader = c.req.header("Authorization");
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        return c.json({ valid: false, message: "No token provided" }, 401);
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    try {
+        const decoded = await verify(token, ENV.JWT_SECRET);
+        return c.json({ isLoggedIn: true, user: decoded });
+    } catch (e) {
+        return c.json({ valid: false, message: "Invalid token" }, 401);
+    }
+}
