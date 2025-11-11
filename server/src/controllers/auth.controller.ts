@@ -1,0 +1,71 @@
+import type { Context, Hono } from "hono";
+import bcryptjs from "bcryptjs";
+import User from "../models/user.model.js";
+import {validateEmail, validatePassword} from "../config/validate.js";
+
+export const registerUser = async(c:Context) => {
+    const {
+        name,
+        email,
+        password,
+        role,
+        phone,
+        sex,
+        avatar,
+        address: { street, city, state, country, postalCode } = {},
+    } = await c.req.json();
+
+    const validationErrors = [];
+    if (!email) validationErrors.push('Email is required');
+    if (!password) validationErrors.push('Password is required');
+    if (!name) validationErrors.push('Name is required');
+    if (!sex) validationErrors.push('Sex is required');
+
+
+
+    if (validationErrors.length > 0) {
+        return c.json({ errors: validationErrors }, 400);
+    }
+
+    if (!validateEmail(email)) {
+        return c.json({ error: 'Please provide a valid email address' }, 400);
+    }
+    const passwordValidation = validatePassword(password);
+    if (!passwordValidation.isValid) {
+        return c.json({
+            error: 'Password requirements not met',
+            requirements: passwordValidation.requirements
+        }, 400);
+    }
+
+    const hashedPassword = bcryptjs.hashSync(password, 12);
+
+    const existingUser = await User.findOne({email});
+    if (existingUser) {
+        return c.json({message: "User already exists"}, 400);
+    }
+
+    const user = new User({
+        name,
+        email,
+        password: hashedPassword,
+        sex,
+        ...(role && { role }),
+        ...(phone && { phone }),
+        ...(avatar && { avatar }),
+        ...(street || city || state || country || postalCode ? {
+            address: { street, city, state, country, postalCode }
+        } : {})
+    });
+
+    await user.save();
+
+    return c.json({message: "User registered successfully", user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+            sex: user.sex
+        }}, 201);
+
+}
