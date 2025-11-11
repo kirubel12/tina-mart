@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="feat:user login">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="feat:validate logged in user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/auth.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/routes/auth.routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <workItem from="1762838823092" duration="1982000" />
       <workItem from="1762841582306" duration="2848000" />
       <workItem from="1762845250662" duration="1745000" />
-      <workItem from="1762847546051" duration="5410000" />
+      <workItem from="1762847546051" duration="8569000" />
     </task>
     <task id="LOCAL-00001" summary="feat:user register">
       <option name="closed" value="true" />
@@ -94,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762852325211</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat:validate logged in user">
+      <option name="closed" value="true" />
+      <created>1762853022954</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1762853022954</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +109,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat:user register" />
     <MESSAGE value="feat:user login" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:user login" />
+    <MESSAGE value="feat:validate logged in user" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:validate logged in user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

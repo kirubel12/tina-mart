@@ -97,6 +97,7 @@ export const loginUser = async (c: Context) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
+                exp: Math.floor(Date.now() / 1000) + 1800
             },
             ENV.JWT_SECRET
         );
@@ -104,6 +105,7 @@ export const loginUser = async (c: Context) => {
         return c.json({
             message: "Login successful",
             token,
+            expiresIn: ENV.JWT_EXPIRES_IN,
             user: {
                 id: user._id,
                 name: user.name,
@@ -118,17 +120,20 @@ export const loginUser = async (c: Context) => {
 };
 
 export const validateUserToken = async (c: Context) => {
+
     const authHeader = c.req.header("Authorization");
     if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return c.json({ valid: false, message: "No token provided" }, 401);
     }
 
     const token = authHeader.split(" ")[1];
-
     try {
         const decoded = await verify(token, ENV.JWT_SECRET);
-        return c.json({ isLoggedIn: true, user: decoded });
+        return c.json({ valid: true, user: decoded });
     } catch (e) {
-        return c.json({ valid: false, message: "Invalid token" }, 401);
+        return c.json({ valid: false, message: "Invalid or expired token" }, 401);
     }
+
+
 }
+
