@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "strict": true,
-    "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "noUnusedParameters": false,
-
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowArbitraryExtensions": true,
     "types": [
-      "node"
+      "node"  
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx",

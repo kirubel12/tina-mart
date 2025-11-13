@@ -4,14 +4,15 @@ import { cors } from 'hono/cors'
 import {connectDB} from "./config/db.js";
 import {ENV} from "./config/env.js";
 import authRoutes from "./routes/auth.routes.js";
+import cartItemRoutes from './routes/cart-item.routes.js';
 import productRoutes from './routes/product.routes.js';
-
 
 
 const app = new Hono()
 app.use('*', cors())
 app.route('/api/v1/auth', authRoutes);
 app.route('/api/v1/products', productRoutes);
+app.route('/api/v1/cart-items', cartItemRoutes);
 
 app.get('/', (c) => {
     return c.json({

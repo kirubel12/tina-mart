@@ -1,7 +1,7 @@
 import {Hono} from "hono";
-import {createProduct, deleteProduct, getAllProducts, getProductById, getProductsByUserId, updateProduct} from "../controllers/product.controller.js";
-import authMiddleware from "../middleware/auth.js";
-import adminMiddleware from "../middleware/admin.js";
+import {createProduct, deleteProduct, getAllProducts, getProductById, getProductsByUserId, updateProduct} from "../controllers/product.controller";
+import authMiddleware from "../middleware/auth";
+import adminMiddleware from "../middleware/admin";
 
 
 const productRoutes = new Hono();
