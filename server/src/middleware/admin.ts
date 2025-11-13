@@ -1,10 +1,10 @@
 import { createMiddleware } from "hono/factory"
 
-// Admin-only middleware
+// Admin and Vendor middleware
 const adminMiddleware = createMiddleware(async (c, next) => {
   const user = c.get('user')
-  if (user.role !== 'admin') {
-    return c.json({ error: 'Admin access required' }, 403)
+  if (user.role !== 'admin' && user.role !== 'vendor') {
+    return c.json({ error: 'Admin or Vendor access required' }, 403)
   }
   await next()
 })

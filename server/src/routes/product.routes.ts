@@ -6,7 +6,7 @@ import adminMiddleware from "../middleware/admin.js";
 
 const productRoutes = new Hono();
 
-productRoutes.post('/create', authMiddleware, adminMiddleware, createProduct);
+productRoutes.post('/', authMiddleware, adminMiddleware, createProduct);
 productRoutes.get('/', authMiddleware, getAllProducts);
 productRoutes.get('/:id', authMiddleware, getProductById);
 productRoutes.put('/:id', authMiddleware, adminMiddleware, updateProduct);

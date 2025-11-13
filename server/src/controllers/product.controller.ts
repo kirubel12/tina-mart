@@ -10,9 +10,11 @@ export const createProduct = async (c: Context) => {
       price,
       category,
       inventory,
-      images,
-      userId
+      images
     } = await c.req.json();
+
+    const user = c.get('user');
+    const userId = user.id;
 
     const validationErrors = [];
     if (!name) validationErrors.push('Product name is required');
@@ -20,7 +22,6 @@ export const createProduct = async (c: Context) => {
     if (!price) validationErrors.push('Product price is required');
     if (!category) validationErrors.push('Product category is required');
     if (!inventory) validationErrors.push('Product inventory is required');
-    if (!userId) validationErrors.push('User ID is required');
 
     if (validationErrors.length > 0) {
       return c.json({ errors: validationErrors }, 400);
