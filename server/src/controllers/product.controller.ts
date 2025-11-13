@@ -34,6 +34,7 @@ export const createProduct = async (c: Context) => {
     if (typeof inventory !== 'number' || inventory < 0) {
       return c.json({ error: 'Inventory must be a positive number' }, 400);
     }
+    
 
     const product = new Product({
       name,
@@ -46,7 +47,8 @@ export const createProduct = async (c: Context) => {
     });
     
     await product.save();
-    return c.json({ success: true, data: product }, 201);
+    const productCount = await Product.countDocuments();
+    return c.json({ success: true, message: "Product created successfully", data: product, count: productCount }, 201);
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 400);
   }
@@ -56,7 +58,7 @@ export const createProduct = async (c: Context) => {
 export const getAllProducts = async (c: Context) => {
   try {
     const products = await Product.find();
-    return c.json({ success: true, data: products });
+    return c.json({ success: true, message: "Products fetched successfully", data: products, count: products.length });
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 500);
   }
@@ -72,7 +74,7 @@ export const getProductById = async (c: Context) => {
       return c.json({ success: false, error: 'Product not found' }, 404);
     }
     
-    return c.json({ success: true, data: product });
+    return c.json({ success: true, message: "Product fetched successfully", data: product });
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 500);
   }
@@ -126,7 +128,7 @@ export const updateProduct = async (c: Context) => {
       return c.json({ success: false, error: 'Product not found' }, 404);
     }
     
-    return c.json({ success: true, data: product });
+    return c.json({ success: true, message: "Product updated successfully", data: product });
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 400);
   }
@@ -142,7 +144,7 @@ export const deleteProduct = async (c: Context) => {
       return c.json({ success: false, error: 'Product not found' }, 404);
     }
     
-    return c.json({ success: true, message: 'Product deleted successfully' });
+    return c.json({ success: true, message: 'Product deleted successfully'});
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 500);
   }
@@ -153,7 +155,7 @@ export const getProductsByUserId = async (c: Context) => {
   try {
     const userId = c.req.param('userId');
     const products = await Product.find({ userId }).populate('userId', 'name email');
-    return c.json({ success: true, data: products });
+    return c.json({ success: true, message: "Products created by user", data: products });
   } catch (error: any) {
     return c.json({ success: false, error: error.message }, 500);
   }
