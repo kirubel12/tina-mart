@@ -1,0 +1,15 @@
+import {Hono} from "hono";
+import {createProduct, deleteProduct, getAllProducts, getProductById, updateProduct} from "../controllers/product.controller.js";
+import authMiddleware from "../middleware/auth.js";
+import adminMiddleware from "../middleware/admin.js";
+
+
+const productRoutes = new Hono();
+
+productRoutes.post('/create', authMiddleware, adminMiddleware, createProduct);
+productRoutes.get('/', authMiddleware, getAllProducts);
+productRoutes.get('/:id', authMiddleware, getProductById);
+productRoutes.put('/:id', authMiddleware, adminMiddleware, updateProduct);
+productRoutes.delete('/:id', authMiddleware, adminMiddleware, deleteProduct);
+
+export default productRoutes;

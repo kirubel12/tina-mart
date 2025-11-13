@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="feat:validate logged in user">
+    <list default="true" id="4b5c5570-06bc-40a9-b2b0-878fa50b278e" name="Changes" comment="feat: enhance user token handling with expiration and validation messages">
+      <change afterPath="$PROJECT_DIR$/server/src/config/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/controllers/product.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/middleware/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/models/product.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/routes/product.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/controllers/auth.controller.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="35Jr3Uqe7WS3QWxPtzL9lnVKspF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,6 +47,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -52,6 +60,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/home/xotwod/code/tina-mart/server/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -75,6 +84,9 @@
       <workItem from="1762841582306" duration="2848000" />
       <workItem from="1762845250662" duration="1745000" />
       <workItem from="1762847546051" duration="8569000" />
+      <workItem from="1762856559279" duration="520000" />
+      <workItem from="1762944660473" duration="873000" />
+      <workItem from="1763012573597" duration="115000" />
     </task>
     <task id="LOCAL-00001" summary="feat:user register">
       <option name="closed" value="true" />
@@ -100,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762853022954</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: enhance user token handling with expiration and validation messages">
+      <option name="closed" value="true" />
+      <created>1762856601257</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1762856601257</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,14 +130,14 @@
     <MESSAGE value="feat:user register" />
     <MESSAGE value="feat:user login" />
     <MESSAGE value="feat:validate logged in user" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:validate logged in user" />
+    <MESSAGE value="feat: enhance user token handling with expiration and validation messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: enhance user token handling with expiration and validation messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/src/config/validate.ts</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
